@@ -2,10 +2,18 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-app.use(express.static(__dirname));
+const ROOT = path.join(__dirname);
+
+app.use(express.static(ROOT));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  const indexPath = path.join(ROOT, 'index.html');
+  res.sendFile(indexPath, (err) => {
+    if(err) {
+      // Essaie dans public/
+      res.sendFile(path.join(ROOT, 'public', 'index.html'));
+    }
+  });
 });
 
 const PORT = process.env.PORT || 3000;
