@@ -1,0 +1,12 @@
+{
+  "name": "defi-autos-42",
+  "version": "1.0.0",
+  "description": "Site Défi Autos 42 - Firminy",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
